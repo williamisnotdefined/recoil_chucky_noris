@@ -7,8 +7,8 @@ import getJokeByCategory from './services/getJokeByCategory'
 export const JokeSelector = selector({
   key: 'JokeSelector',
   get: async ({ get }) => {
-    const category =  get(CategoryAtom)
-
-    return await getJokeByCategory(category)
+    const { name } =  get(CategoryAtom)
+    console.log(name)
+    return await getJokeByCategory(name)
   }
 })

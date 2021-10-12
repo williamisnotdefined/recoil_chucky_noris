@@ -2,13 +2,13 @@ import api from '../../../utils/axios'
 
 const getJokeByCategory = async (category) => {
 
-  let param = {}
+  let params = {}
 
   if (category) {
-    param.category = category
+    params.category = category
   }
 
-  return await api.get('random', param)
+  return await api.get('random', { params })
 }
 
 export default getJokeByCategory

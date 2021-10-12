@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilValueLoadable, useSetRecoilState } from 'recoil'
 
-import { CategoriesSelector, CategoryAtom } from '../globalState/Category'
+import { CategoriesSelector, setCategorySelector } from '../globalState/Category'
 import useLoadableResult from '../globalState/useLoadableResult'
 
 import { Flex } from '../Grid'
@@ -9,8 +9,7 @@ import { Container } from './CategoryList.styles'
 
 const CategoryList = () => {
 
-  const setCategory = useSetRecoilState(CategoryAtom)
-
+  const setCategory = useSetRecoilState(setCategorySelector)
   const categoriesLoadable = useRecoilValueLoadable(CategoriesSelector)
 
   const {

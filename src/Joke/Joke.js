@@ -9,14 +9,23 @@ import { Container } from './Joke.styles'
 
 const Joke = () => {
 
-  const category = useRecoilValue(CategoryAtom)
+  const { name: categoryName } = useRecoilValue(CategoryAtom)
   const jokeLoadable = useRecoilValueLoadable(JokeSelector)
 
-  const { hasValue, contents } = useLoadableResult(jokeLoadable)
+  const {
+    isLoading,
+    hasValue,
+    contents
+  } = useLoadableResult(jokeLoadable)
 
   return (
     <Container>
-      {category !== null && hasValue && (
+      {isLoading && (
+        <p>
+          Loading joke..
+        </p>
+      )}
+      {categoryName !== null && hasValue && (
         <h2>{contents?.data?.value}</h2>
       )}
     </Container>
